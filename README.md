@@ -81,7 +81,7 @@ projeto/
 
 ## 🌐 Acesso Online
 
-O site está disponível online através do GitHub Pages: [https://babisobrinho.github.io/5464-matematica](https://github.com/babisobrinho)
+O site está disponível online através do GitHub Pages: [https://babisobrinho.github.io/5464-matematica](https://babisobrinho.github.io/5464-matematica)
 
 ## 📝 Relatório
 
