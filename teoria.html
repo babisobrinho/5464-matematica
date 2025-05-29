@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria - Conceitos Matemáticos</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <div>
+                <a class="navbar-brand" href="index.html">Matemática</a>
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.2; margin-top: -0.3rem;">
+                    TETPSI 2<br/>
+                    UFCD 5464
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ficha1.html">Ficha 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ficha2.html">Ficha 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teoria.html">Teoria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipa.html">Equipa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-light py-3">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center">
+                <h1 class="display-4 fw-bolder">Conceitos Teóricos</h1>
+                <p class="lead fw-normal text-muted mb-0">Fundamentos Matemáticos para Resolução dos Problemas</p>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow mb-5">
+                        <div class="card-header bg-primary text-white">
+                            <h3 style="color: white;"> Teoria de Conjuntos </h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Definição de Partição</h4>
+                            <p>Dado um conjunto não vazio \(A\) e uma família de subconjuntos de \(A\), \(\mathcal{P} = \{B_i \subset A: i \in I \subset \mathbb{N}\}\) é chamada de partição de \(A\) se:</p>
+                            <div class="math-container">
+                                <p>a. \(\forall B_i \in \mathcal{P}, B_i \neq \emptyset\)</p>
+                                <p>b. \(\bigcup_{i \in I} B_i = A\)</p>
+                                <p>c. \(\forall i \in I, \forall j \in I \setminus \{i\}, B_i \cap B_j = \emptyset\)</p>
+                            </div>
+                            <div class="alert alert-info mt-4">
+                                <h5>Observação:</h5>
+                                <p>Uma partição pode ter um conjunto finito ou infinito numerável e dada uma partição de um conjunto pode ser utilizada para construir uma partição para qualquer seu subconjunto, efetuando uma interseção de cada elemento da partição anterior pelo subconjunto para o qual estamos a construir a nova partição.</p>
+                                <p>Um conjunto qualquer \(A\) (subconjunto de um conjunto universal \(U\)), pode formar uma partição da seguinte forma: \(\{A, A^c\}\) onde \(A^c\) é o acontecimento complementar de \(A\).</p>
+                            </div>
+                            <h4 class="mt-4">Exemplo Visual de Partição</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <canvas id="particaoCanvas" width="300" height="300"></canvas>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="mb-0">Partição de um conjunto \(A\) em três subconjuntos disjuntos \(B_1\), \(B_2\) e \(B_3\).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Propriedades de uma Partição:</h5>
+                                    <ul>
+                                        <li>Cada elemento do conjunto original pertence a exatamente um subconjunto da partição.</li>
+                                        <li>A união de todos os subconjuntos da partição é igual ao conjunto original.</li>
+                                        <li>Os subconjuntos da partição são mutuamente disjuntos (não têm elementos em comum).</li>
+                                        <li>Nenhum subconjunto da partição é vazio.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Aplicação no Contexto do Problema</h4>
+                            <p>No contexto do problema das bactérias tri-cromossomáticas, podemos considerar o conjunto de todos os ternos possíveis (27 combinações) como o conjunto universal. Este conjunto pode ser particionado em três subconjuntos disjuntos:</p>
+                            <ul>
+                                <li>Subconjunto de ternos da subespécie S-R</li>
+                                <li>Subconjunto de ternos da subespécie S-K</li>
+                                <li>Subconjunto de ternos da subespécie S-W</li>
+                            </ul>
+                            <p>Esta partição é fundamental para aplicar o Teorema da Probabilidade Total e o Teorema de Bayes na resolução dos problemas da Ficha 2.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow mb-5">
+                        <div class="card-header bg-success text-white">
+                            <h3 style="color: white;">Probabilidades</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Axiomas de Kolmogorov</h4>
+                            <p>Dado um espaço de acontecimentos \((S, F, P)\), em que \(F\) é uma \(\sigma\)-Álgebra associada ao conjunto \(S\) e \(P\) é uma função que parte de \(S\) para o conjunto dos números reais:</p>
+                            <div class="math-container">
+                                <p>1. Todo o acontecimento tem uma probabilidade não negativa:</p>
+                                <p>\(\forall E \in F, P(E) \geq 0\)</p>
+                                
+                                <p>2. A Probabilidade de \(S\) é 1:</p>
+                                <p>\(P(S) = 1\)</p>
+                                
+                                <p>3. A Probabilidade da união de uma família numerável de acontecimentos mutualmente exclusivos é a soma das suas probabilidades:</p>
+                                <p>\(\forall (E_n)_{n \in \mathbb{N}} \text{ com } \forall i \neq j, E_i \cap E_j = \emptyset \Rightarrow P\left(\bigcup_{i \in \mathbb{N}} E_i\right) = \sum_{i \in \mathbb{N}} P(E_i) = \sum_{i=1}^{+\infty} P(E_i)\)</p>
+                            </div>
+                            <h4 class="mt-4">Consequências dos Axiomas de Kolmogorov</h4>
+                            <div class="math-container">
+                                <p>1. Probabilidade do complementar:</p>
+                                <p>\(\forall E \in F, P(E^c) = P(S - E) = 1 - P(E)\)</p>
+                                
+                                <p>2. Probabilidade do conjunto vazio:</p>
+                                <p>\(P(\emptyset) = 0\)</p>
+                                
+                                <p>3. Monotonia da probabilidade:</p>
+                                <p>\(\forall A, B \in F, A \subset B \Rightarrow P(A) \leq P(B)\)</p>
+                                
+                                <p>4. Probabilidade da união de dois acontecimentos:</p>
+                                <p>\(\forall A, B \in F, P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</p>
+                            </div>
+                            <h4 class="mt-4">Probabilidade Condicional</h4>
+                            <p>A probabilidade condicional de um evento \(A\) dado que o evento \(B\) ocorreu, denotada por \(P(A|B)\), é definida como:</p>
+                            <div class="math-container">
+                                <p>\(P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ para } P(B) > 0\)</p>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <p>A probabilidade condicional \(P(A|B)\) pode ser interpretada como a probabilidade de \(A\) ocorrer quando sabemos que \(B\) já ocorreu. Isso restringe o espaço amostral aos resultados em \(B\).</p>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <canvas id="probCondCanvas" width="300" height="300"></canvas>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="mb-0">Representação visual da probabilidade condicional \(P(A|B)\).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Propriedades da Probabilidade Condicional:</h5>
+                                    <ul>
+                                        <li>\(0 \leq P(A|B) \leq 1\)</li>
+                                        <li>\(P(S|B) = 1\)</li>
+                                        <li>\(P(A \cup C|B) = P(A|B) + P(C|B) - P(A \cap C|B)\)</li>
+                                        <li>\(P(A \cap B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)\)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow mb-5">
+                        <div class="card-header text-white style="background-color: #28a745;">
+                            <h3 style="color: white;">Teorema da Probabilidade Total e Teorema de Bayes</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Teorema da Probabilidade Total</h4>
+                            <p>Se \(B_1, B_2, \ldots, B_n\) formam uma partição do espaço amostral \(S\), então para qualquer evento \(A\):</p>
+                            <div class="math-container">
+                                <p>\[ P(A) = \sum_{i=1}^{n} P(A|B_i) \cdot P(B_i) \]</p>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <p>O Teorema da Probabilidade Total permite calcular a probabilidade de um evento \(A\) considerando todas as maneiras possíveis de \(A\) ocorrer através dos eventos \(B_i\) que formam uma partição do espaço amostral.</p>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <canvas id="probTotalCanvas" width="300" height="300"></canvas>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="mb-0">Representação visual do Teorema da Probabilidade Total.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h5>Aplicação no Problema:</h5>
+                                    <p>Na Ficha 2, utilizamos o Teorema da Probabilidade Total para calcular a probabilidade de uma bactéria resistir ao bacteriófago, considerando todos os possíveis números de genes W no 13º terno:</p>
+                                    <p class="d-flex wrap">\(P(A) = P(A|B_0) \cdot P(B_0) + P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2) + P(A|B_3) \cdot P(B_3)\)</p>
+                                    <p>Onde \(A\) é o evento "bactéria resiste ao bacteriófago" e \(B_i\) é o evento "bactéria tem \(i\) genes W no 13º terno".</p>
+                                </div>
+                            </div>
+                            <h4 class="mt-3">Teorema de Bayes</h4>
+                            <p>Para eventos \(A\) e \(B\) com \(P(B) > 0\):</p>
+                            <div class="math-container">
+                                <p>\[ P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)} \]</p>
+                            </div>
+                            <p>Se \(B_1, B_2, \ldots, B_n\) formam uma partição do espaço amostral \(S\), então para qualquer evento \(A\) com \(P(A) > 0\) e qualquer \(i \in \{1, 2, \ldots, n\}\):</p>
+                            <div class="math-container">
+                                <p>\[ P(B_i|A) = \frac{P(A|B_i) \cdot P(B_i)}{\sum_{j=1}^{n} P(A|B_j) \cdot P(B_j)} \]</p>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <p>O Teorema de Bayes permite atualizar a probabilidade de um evento \(B\) com base em novas evidências \(A\). É fundamental em estatística bayesiana e aprendizado de máquina.</p>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <canvas id="bayesCanvas" width="300" height="300"></canvas>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="mb-0">Representação visual do Teorema de Bayes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Aplicação no Problema:</h5>
+                                    <p>Na Ficha 2, utilizamos o Teorema de Bayes para calcular a distribuição prevista por subtipo da bactéria após o ataque do bacteriófago:</p>
+                                    <p>\(P(B_i|A) = \frac{P(A|B_i) \cdot P(B_i)}{P(A)}\)</p>
+                                    <p>Onde \(A\) é o evento "bactéria resiste ao bacteriófago" e \(B_i\) é o evento "bactéria tem \(i\) genes W no 13º terno".</p>
+                                    <p>Isso nos permite determinar como a distribuição dos subtipos muda após o ataque, refletindo o processo de seleção natural.</p>
+                                </div>
+                            </div>
+                            <h4 class="mt-5 mb-3">Calculadora Interativa do Teorema de Bayes</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5>Dados Iniciais:</h5>
+                                            <div class="mb-3">
+                                                <label for="prior-b" class="form-label">Probabilidade a priori P(B):</label>
+                                                <input type="range" class="form-range" id="prior-b" min="0" max="1" step="0.01" value="0.3">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>0</span>
+                                                    <span id="prior-b-value">0.30</span>
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="cond-a-given-b" class="form-label">Probabilidade condicional P(A|B):</label>
+                                                <input type="range" class="form-range" id="cond-a-given-b" min="0" max="1" step="0.01" value="0.8">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>0</span>
+                                                    <span id="cond-a-given-b-value">0.80</span>
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="cond-a-given-not-b" class="form-label">Probabilidade condicional P(A|não-B):</label>
+                                                <input type="range" class="form-range" id="cond-a-given-not-b" min="0" max="1" step="0.01" value="0.1">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>0</span>
+                                                    <span id="cond-a-given-not-b-value">0.10</span>
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <h5>Resultados:</h5>
+                                            <div class="card bg-light mb-3">
+                                                <div class="card-body">
+                                                    <p>Probabilidade total P(A):</p>
+                                                    <h4 id="total-a">0.31</h4>
+                                                    
+                                                    <p class="mt-3">Probabilidade a posteriori P(B|A):</p>
+                                                    <h4 id="posterior-b-given-a">0.77</h4>
+                                                    
+                                                    <div class="progress mt-3">
+                                                        <div class="progress-bar bg-accent" id="progress-posterior" role="progressbar" style="width: 77%;" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100">77%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="alert alert-info">
+                                                <p class="mb-0">Observe como a probabilidade a posteriori P(B|A) muda em relação à probabilidade a priori P(B) após considerar a evidência A.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="fw-bold">Matemática</h5>
+                    <p>Ana Oliveira
+                        <br>Lenice Soares
+                        <br>Rebeca Santos
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Páginas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Início</a></li>
+                        <li><a href="ficha1.html" class="text-white">Ficha 1</a></li>
+                        <li><a href="ficha2.html" class="text-white">Ficha 2</a></li>
+                        <li><a href="teoria.html" class="text-white">Teoria</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="relatorio.html" class="text-white">Relatório Completo</a></li>
+                        <li><a href="equipa.html" class="text-white">Equipa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 - UFCD 5464 Matemática. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/teoria.js"></script>
+</body>
+</html>

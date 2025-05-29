@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha 1 - Bactérias Tri-cromossomáticas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <div>
+                <a class="navbar-brand" href="index.html">Matemática</a>
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.2; margin-top: -0.3rem;">
+                    TETPSI 2<br/>
+                    UFCD 5464
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ficha1.html">Ficha 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ficha2.html">Ficha 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teoria.html">Teoria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipa.html">Equipa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-light py-3">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center">
+                <h1 class="display-4 fw-bolder">Bactérias Tri-cromossomáticas</h1>
+                <p class="lead fw-normal text-muted mb-0">Ficha de Recuperação 1</p>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow mb-5">
+                        <div class="card-header">
+                            <h3>Enunciado do Problema</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Consideremos uma espécie de bactéria com código genético tri-cromossomático, ou seja, com ternos de cromossomas em vez de pares. Esta espécie divide-se em três subespécies (S-R, S-K e S-W) de acordo com o terno que se encontra na 13ª posição do seu genoma, com cromossomas que podem ser da forma R, K e W, seguindo uma hierarquia de dominância: R domina K, R domina W, K domina W.</p>
+                            <p>Cada subespécie possui características específicas:</p>
+                            <ul>
+                                <li>
+                                    <strong>Subespécie S-R:</strong>
+                                    Tem dominância do cromossoma R no terno 13, não consegue reproduzir sexuadamente com outro da sua subespécie e partilha 2 cromossomas no processo de reprodução. Produz a proteína RL que permite uma parede celular mais resistente.
+                                </li>
+                                <li>
+                                    <strong>Subespécie S-W:</strong>
+                                    Tem o seu 13º terno com 3 cromossomas W, não consegue reproduzir-se sexuadamente com outro da sua subespécie e partilha 1 cromossoma no processo de reprodução. Produz agentes enzimáticos que permitem eliminar rapidamente produtos nocivos.
+                                </li>
+                                <li>
+                                    <strong>Subespécie S-K:</strong>
+                                    Tem dominância do cromossoma K no terno 13, pode partilhar 1 ou 2 cromossomas na reprodução sexuada e consegue produzir compostos para reparação celular mais rápida e eficaz.
+                                </li>
+                            </ul>
+                            <div class="alert alert-info mt-4">
+                                <h5>Questões a resolver:</h5>
+                                <ol>
+                                    <li>Determine o conjunto de todos os ternos possíveis e classifique-os por subespécie.</li>
+                                    <li>Determine os possíveis descendentes e suas frequências para cada combinação de reprodução entre subespécies.</li>
+                                    <li>Analise a proposição lógica: "Sem a subespécie S-K, a subespécie S-W teria desaparecido".</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title mb-3">Questão 1</h2>
+                    <p class="lead fw-normal text-dark text-center mb-5">
+                        Determine o conjunto de todos os ternos possíveis e classifique-os por subespécie
+                    </p>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Abordagem Matemática</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Para resolver esta questão, precisamos identificar todas as combinações únicas possíveis de ternos com os cromossomas R, K e W, e depois classificá-los em subespécies de acordo com as regras de dominância.</p>
+                            <div class="math-container">
+                                <p>Considerando que temos 3 tipos de cromossomas (R, K e W) e cada terno contém 3 posições, o número total de permutações possíveis seria:</p>
+                                <p>\(3^3 = 27\) permutações</p>
+                                <p>No entanto, como estamos interessados nas combinações únicas (onde a ordem não importa), o número é menor. Para um terno com 3 posições, considerando combinações com repetição, temos:</p>
+                                <p>\(\binom{n+r-1}{r} = \binom{3+3-1}{3} = \binom{5}{3} = 10\) combinações únicas</p>
+                                <p>Onde:</p>
+                                <ul>
+                                    <li>\(n\) = número de tipos de cromossomas (3: R, K, W)</li>
+                                    <li>\(r\) = tamanho do terno (3 posições)</li>
+                                </ul>
+                            </div>
+                            <p>Aplicando as regras de dominância:</p>
+                            <ul>
+                                <li>R domina K e W</li>
+                                <li>K domina W</li>
+                            </ul>
+                            <p>E as definições das subespécies:</p>
+                            <ul>
+                                <li>S-R: Dominância do cromossoma R no terno 13</li>
+                                <li>S-W: Terno 13 com 3 cromossomas W (WWW)</li>
+                                <li>S-K: Dominância do cromossoma K no terno 13 (sem presença de R)</li>
+                            </ul>
+                            <p>Podemos classificar os ternos da seguinte forma:</p>
+                            <ul>
+                                <li>Se o terno contém pelo menos um R, pertence à subespécie S-R (devido à dominância de R)</li>
+                                <li>Se o terno é WWW, pertence à subespécie S-W</li>
+                                <li>Se o terno não contém R mas contém pelo menos um K, pertence à subespécie S-K (devido à dominância de K sobre W)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Filtro por Subespécie</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-12 mb-4">
+                                    <div class="form-group">
+                                        <label for="filtro-subtipo" class="form-label">Filtrar por Subespécie:</label>
+                                        <select id="filtro-subtipo" class="form-select">
+                                            <option value="todos">Todas as Subespécies</option>
+                                            <option value="S-R">Subespécie S-R</option>
+                                            <option value="S-K">Subespécie S-K</option>
+                                            <option value="S-W">Subespécie S-W</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="filter-explanation m-0" id="explicacao-filtro">
+                                        <h5>Importância da Classificação por Subespécies</h5>
+                                        <p>A classificação das bactérias em subespécies baseada nos ternos cromossomáticos é fundamental para:</p>
+                                        <ul>
+                                            <li>Compreender as regras de reprodução e as possibilidades de descendência</li>
+                                            <li>Analisar a resistência ao bacteriófago, que está diretamente relacionada com o número de genes W</li>
+                                            <li>Prever a evolução da população bacteriana ao longo das gerações</li>
+                                            <li>Estudar como a distribuição das subespécies muda após ataques do bacteriófago</li>
+                                        </ul>
+                                        <p class="mb-0">Este filtro permite visualizar as combinações únicas de ternos por subespécie, facilitando a análise das características específicas de cada grupo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Terno</th>
+                                            <th>Subespécie</th>
+                                            <th>Dominância</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ternos-tbody">
+                                        <!-- Preenchido via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Resumo da Classificação</h5>
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Total de Ternos Únicos
+                                                    <span class="badge bg-primary rounded-pill" id="total-ternos">10</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Subespécie S-R
+                                                    <span class="badge bg-danger rounded-pill" id="total-sr">6</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Subespécie S-K
+                                                    <span class="badge bg-warning rounded-pill" id="total-sk">3</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Subespécie S-W
+                                                    <span class="badge bg-success rounded-pill" id="total-sw">1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Distribuição das Subespécies</h5>
+                                            <canvas id="distribuicao-chart"></canvas>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="d-flex justify-content-between">
+                                                <span>S-R: <span id="percent-sr">60.0%</span></span>
+                                                <span>S-K: <span id="percent-sk">30.0%</span></span>
+                                                <span>S-W: <span id="percent-sw">10.0%</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title mb-3">Questão 2</h2>
+                    <p class="lead fw-normal text-dark text-center mb-5">
+                        Determine os possíveis descendentes e suas frequências para cada combinação de reprodução entre subespécies
+                    </p>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Regras de Reprodução</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Para resolver esta questão, analisamos todas as combinações possíveis de reprodução entre as subespécies, considerando as restrições e regras de partilha de cromossomas.</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Subespécie</th>
+                                            <th>Partilha de Cromossomas</th>
+                                            <th>Reprodução com a mesma subespécie</th>
+                                            <th>Características</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>S-R</td>
+                                            <td>2 cromossomas</td>
+                                            <td>Não permitida</td>
+                                            <td>Proteína RL para parede celular resistente</td>
+                                        </tr>
+                                        <tr>
+                                            <td>S-K</td>
+                                            <td>1 ou 2 cromossomas</td>
+                                            <td>Permitida</td>
+                                            <td>Compostos para reparação celular rápida</td>
+                                        </tr>
+                                        <tr>
+                                            <td>S-W</td>
+                                            <td>1 cromossoma</td>
+                                            <td>Não permitida</td>
+                                            <td>Agentes enzimáticos para eliminar produtos nocivos</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="alert alert-info">
+                                <h5>Combinações Possíveis de Reprodução:</h5>
+                                <ul>
+                                    <li>S-R + S-K</li>
+                                    <li>S-R + S-W</li>
+                                    <li>S-K + S-K</li>
+                                    <li>S-K + S-W</li>
+                                </ul>
+                                <p class="mb-0">As combinações S-R + S-R e S-W + S-W não são permitidas devido às restrições de reprodução.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Simulador de Reprodução</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="simulador-form">
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="bacteria1" class="form-label fw-bold">Bactéria 1:</label>
+                                            <select id="bacteria1" class="form-select">
+                                                <option value="S-R">Subespécie S-R</option>
+                                                <option value="S-K">Subespécie S-K</option>
+                                                <option value="S-W">Subespécie S-W</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="terno1" class="form-label fw-bold">Terno:</label>
+                                            <select id="terno1" class="form-select">
+                                                <!-- Preenchido via JavaScript -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="bacteria2" class="form-label fw-bold">Bactéria 2:</label>
+                                            <select id="bacteria2" class="form-select">
+                                                <option value="S-R">Subespécie S-R</option>
+                                                <option value="S-K" selected>Subespécie S-K</option>
+                                                <option value="S-W">Subespécie S-W</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="terno2" class="form-label fw-bold">Terno:</label>
+                                            <select id="terno2" class="form-select">
+                                                <!-- Preenchido via JavaScript -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Simular Reprodução</button>
+                                </div>
+                            </form>
+                            <div id="resultado-simulacao" class="mt-4">
+                                <!-- Resultados da simulação serão exibidos aqui -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Análise dos Resultados</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>A análise completa das possibilidades de reprodução mostra padrões interessantes na distribuição dos descendentes:</p>
+                            <ul>
+                                <li><strong>S-R + S-K:</strong> Gera principalmente descendentes S-R (aproximadamente 75%) e alguns S-K (aproximadamente 25%), devido à dominância do cromossoma R.</li>
+                                <li><strong>S-R + S-W:</strong> Gera principalmente descendentes S-R (aproximadamente 85%) e alguns S-K (aproximadamente 15%), novamente devido à dominância do cromossoma R.</li>
+                                <li><strong>S-K + S-K:</strong> Gera principalmente descendentes S-K (aproximadamente 75%) e alguns S-W (aproximadamente 25%), mostrando a possibilidade de surgimento da subespécie S-W a partir de duas bactérias S-K.</li>
+                                <li><strong>S-K + S-W:</strong> Gera principalmente descendentes S-K (aproximadamente 65%) e alguns S-W (aproximadamente 35%), demonstrando a importância da subespécie S-K para a manutenção da subespécie S-W.</li>
+                            </ul>
+                            <p class="mb-0">Estas distribuições têm implicações importantes para a evolução da população bacteriana ao longo das gerações, especialmente considerando as diferentes resistências ao bacteriófago que serão exploradas na Ficha 2.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title mb-3">Questão 3</h2>
+                    <p class="lead fw-normal text-dark text-center mb-5">
+                        Analise a proposição lógica: "Sem a subespécie S-K, a subespécie S-W teria desaparecido"
+                    </p>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Proposição: "Sem a subespécie S-K, a subespécie S-W teria desaparecido"</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>A questão pede para analisar a afirmação: "Sem a subespécie S-K, a subespécie S-W teria desaparecido".</p>
+                            <div class="math-container">
+                                <p>Formalizamos esta afirmação como uma implicação lógica:</p>
+                                <p>\(P \rightarrow Q\)</p>
+                                <p>Onde:</p>
+                                <ul>
+                                    <li>\(P\): "Não existe a subespécie S-K"</li>
+                                    <li>\(Q\): "A subespécie S-W desaparece"</li>
+                                </ul>
+                            </div>
+                            <p>Para determinar o valor lógico desta proposição, verificamos se é possível gerar a subespécie S-W sem a participação da subespécie S-K.</p>
+                            <div class="text-center mb-4">
+                                <button id="analisar-proposicao" class="btn btn-primary">Analisar Proposição</button>
+                            </div>
+                            <div id="resultado-proposicao">
+                                <!-- Resultado da análise será exibido aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">Validação Matemática</h2>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Testes e Verificações</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="validation-section">
+                                <h5>1. Verificação do Número de Combinações Únicas</h5>
+                                <p>Para verificar o número correto de combinações únicas de ternos, aplicamos a fórmula de combinações com repetição:</p>
+                                
+                                <div class="math-container">
+                                    <p>\(\binom{n+r-1}{r} = \binom{3+3-1}{3} = \binom{5}{3} = \frac{5!}{3!(5-3)!} = \frac{5 \cdot 4 \cdot 3!}{3! \cdot 2 \cdot 1} = \frac{5 \cdot 4}{2 \cdot 1} = 10\)</p>
+                                </div>
+                                
+                                <p>Confirmamos este resultado enumerando todas as combinações únicas possíveis:</p>
+                                <ol class="mb-0">
+                                    <li>RRR</li>
+                                    <li>RRK</li>
+                                    <li>RRW</li>
+                                    <li>RKK</li>
+                                    <li>RKW</li>
+                                    <li>RWW</li>
+                                    <li>KKK</li>
+                                    <li>KKW</li>
+                                    <li>KWW</li>
+                                    <li>WWW</li>
+                                </ol>
+                            </div>
+                            <div class="validation-section">
+                                <h5>2. Verificação da Classificação por Subespécies</h5>
+                                <p>Para validar a classificação dos ternos em subespécies, aplicamos as regras de dominância:</p>
+                                <ul>
+                                    <li>Subespécie S-R (6 ternos): RRR, RRK, RRW, RKK, RKW, RWW</li>
+                                    <li>Subespécie S-K (3 ternos): KKK, KKW, KWW</li>
+                                    <li>Subespécie S-W (1 terno): WWW</li>
+                                </ul>
+                                <p class="mb-0">Verificamos que a soma dos ternos por subespécie (6 + 3 + 1 = 10) corresponde ao número total de combinações únicas.</p>
+                            </div>
+                            <div class="validation-section">
+                                <h5>3. Validação do Simulador de Reprodução</h5>
+                                <p>Para garantir a precisão do simulador de reprodução, realizamos os seguintes testes:</p>
+                                <ul class="mb-0">
+                                    <li>Verificamos que as restrições de reprodução são respeitadas (S-R não pode reproduzir com S-R, S-W não pode reproduzir com S-W)</li>
+                                    <li>Confirmamos que o número de cromossomas partilhados segue as regras definidas (S-R: 2, S-W: 1, S-K: 1 ou 2)</li>
+                                    <li>Testamos todas as combinações possíveis de reprodução e verificamos que os descendentes gerados seguem as regras de dominância</li>
+                                    <li>Comparamos os resultados com cálculos manuais para garantir a precisão das frequências</li>
+                                </ul>
+                            </div>
+                            <div class="validation-section mb-2">
+                                <h5>4. Verificação da Análise da Proposição Lógica</h5>
+                                <p>Para validar a análise da proposição "Sem a subespécie S-K, a subespécie S-W teria desaparecido", realizamos os seguintes testes:</p>
+                                <ul>
+                                    <li>Verificamos todas as possibilidades de reprodução sem a participação da subespécie S-K</li>
+                                    <li>Confirmamos que a reprodução entre S-R e S-W não gera descendentes S-W</li>
+                                    <li>Verificamos que a subespécie S-W não pode reproduzir-se com ela mesma</li>
+                                    <li>Concluímos que, sem a subespécie S-K, a subespécie S-W desapareceria após uma geração</li>
+                                </ul>
+                                <p class="mb-0">Estes testes confirmam que a proposição é verdadeira.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="fw-bold">Matemática</h5>
+                    <p>Ana Oliveira
+                        <br>Lenice Soares
+                        <br>Rebeca Santos
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Páginas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Início</a></li>
+                        <li><a href="ficha1.html" class="text-white">Ficha 1</a></li>
+                        <li><a href="ficha2.html" class="text-white">Ficha 2</a></li>
+                        <li><a href="teoria.html" class="text-white">Teoria</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="relatorio.html" class="text-white">Relatório Completo</a></li>
+                        <li><a href="equipa.html" class="text-white">Equipa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 - UFCD 5464 Matemática. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ficha1.js"></script>
+</body>
+</html>

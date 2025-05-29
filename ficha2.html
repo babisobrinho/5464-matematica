@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha 2 - Bacteriófago e Resistência</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <div>
+                <a class="navbar-brand" href="index.html">Matemática</a>
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #ffffff; font-size: 0.85rem; line-height: 1.2; margin-top: -0.3rem;">
+                    TETPSI 2<br/>
+                    UFCD 5464
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ficha1.html">Ficha 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ficha2.html">Ficha 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teoria.html">Teoria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipa.html">Equipa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-light py-3">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center">
+                <h1 class="display-4 fw-bolder">Bacteriófago e Resistência</h1>
+                <p class="lead fw-normal text-muted mb-0">Ficha de Recuperação 2</p>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow mb-5">
+                        <div class="card-header">
+                            <h3>Enunciado do Problema</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Consideremos agora que existe um bacteriófago que ataca a espécie de bactéria apresentada na Ficha 1. Sabemos que a resistência ao bacteriófago está associada à existência de genes do tipo W no seu 13º terno cromossomático.</p>
+                            <p>A possibilidade de resistência da bactéria ao bacteriófago está retratada da seguinte forma:</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Número de genes W no 13º terno</th>
+                                            <th>Possibilidade de resistência ao Bacteriófago</th>
+                                            <th>Subtipos associados</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>7%</td>
+                                            <td>RRR, RRK, KKK, KKR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>30%</td>
+                                            <td>RRW, KKW, RKW</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>55%</td>
+                                            <td>RWW, KWW</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>95%</td>
+                                            <td>WWW</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="alert alert-info mt-4">
+                                <h5>Questões a resolver:</h5>
+                                <ol>
+                                    <li>Calcule a Probabilidade de uma dada bactéria resistir ao bacteriófago.</li>
+                                    <li>Qual seria a distribuição prevista por subtipo da bactéria se o bacteriófago conseguisse afetar toda a colónia de bactérias?</li>
+                                </ol>
+                                <p class="mb-0">Observação: Deve-se utilizar o teorema da Probabilidade Total e o Teorema de Bayes para resolver as questões.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title mb-3">Questão 1</h2>
+                    <p class="lead fw-normal text-dark text-center mb-5">
+                        Calcule a Probabilidade de uma dada bactéria resistir ao bacteriófago
+                    </p>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Abordagem Matemática</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Para calcular a probabilidade de uma bactéria resistir ao bacteriófago, utilizamos o Teorema da Probabilidade Total, considerando a distribuição dos diferentes subtipos de bactérias e suas respectivas probabilidades de resistência.</p>
+                            <div class="math-container">
+                                <p>Definimos os eventos:</p>
+                                <ul>
+                                    <li>\(A\): Bactéria resiste ao bacteriófago</li>
+                                    <li>\(B_0\): Bactéria tem 0 genes W no 13º terno</li>
+                                    <li>\(B_1\): Bactéria tem 1 gene W no 13º terno</li>
+                                    <li>\(B_2\): Bactéria tem 2 genes W no 13º terno</li>
+                                    <li>\(B_3\): Bactéria tem 3 genes W no 13º terno</li>
+                                </ul>
+                                <p>Probabilidades condicionais (dadas no enunciado):</p>
+                                <ul>
+                                    <li>\(P(A|B_0) = 0.07\) (7% de resistência com 0 genes W)</li>
+                                    <li>\(P(A|B_1) = 0.30\) (30% de resistência com 1 gene W)</li>
+                                    <li>\(P(A|B_2) = 0.55\) (55% de resistência com 2 genes W)</li>
+                                    <li>\(P(A|B_3) = 0.95\) (95% de resistência com 3 genes W)</li>
+                                </ul>
+                                <p>Distribuição dos subtipos (baseada na Questão 1 da Ficha 1):</p>
+                                <ul>
+                                    <li>\(P(B_0) = \frac{8}{27} \approx 0.296\) (8 ternos com 0 genes W)</li>
+                                    <li>\(P(B_1) = \frac{12}{27} \approx 0.444\) (12 ternos com 1 gene W)</li>
+                                    <li>\(P(B_2) = \frac{6}{27} \approx 0.222\) (6 ternos com 2 genes W)</li>
+                                    <li>\(P(B_3) = \frac{1}{27} \approx 0.037\) (1 terno com 3 genes W)</li>
+                                </ul>
+                                <p>Aplicando o Teorema da Probabilidade Total:</p>
+                                <p>\(P(A) = P(A|B_0) \cdot P(B_0) + P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2) + P(A|B_3) \cdot P(B_3)\)</p>
+                                <p>\(P(A) = 0.07 \cdot 0.296 + 0.30 \cdot 0.444 + 0.55 \cdot 0.222 + 0.95 \cdot 0.037\)</p>
+                                <p>\(P(A) = 0.02072 + 0.1332 + 0.1221 + 0.03515\)</p>
+                                <p>\(P(A) = 0.31117\)</p>
+                            </div>
+                            <div class="alert alert-success mt-4">
+                                <h5>Resultado:</h5>
+                                <p class="mb-0">A probabilidade de uma bactéria resistir ao bacteriófago é aproximadamente 31.12%.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Distribuição dos Subtipos</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <canvas id="subtipos-chart"></canvas>
+                                </div>
+                                <div class="col-md-6">
+                                    <canvas id="contribuicao-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-4">
+                                <p>O gráfico à esquerda mostra a distribuição original dos subtipos de bactérias por número de genes W.</p>
+                                <p>O gráfico à direita mostra a contribuição de cada subtipo para a probabilidade total de resistência.</p>
+                                <p class="mb-0">Observe que, embora o subtipo com 3 genes W (WWW) represente apenas 3.7% da população, sua alta taxa de resistência (95%) faz com que sua contribuição para a resistência total seja significativa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Calculadora Interativa</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Utilize esta calculadora para explorar como diferentes distribuições dos subtipos afetam a probabilidade total de resistência.</p>
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="prob-b0" class="form-label">P(B₀) - 0 genes W:</label>
+                                        <input type="range" class="form-range" id="prob-b0" min="0" max="1" step="0.001" value="0.296">
+                                        <div class="d-flex justify-content-between">
+                                            <span>0</span>
+                                            <span id="prob-b0-value">0.296</span>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="prob-b1" class="form-label">P(B₁) - 1 gene W:</label>
+                                        <input type="range" class="form-range" id="prob-b1" min="0" max="1" step="0.001" value="0.444">
+                                        <div class="d-flex justify-content-between">
+                                            <span>0</span>
+                                            <span id="prob-b1-value">0.444</span>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="prob-b2" class="form-label">P(B₂) - 2 genes W:</label>
+                                        <input type="range" class="form-range" id="prob-b2" min="0" max="1" step="0.001" value="0.222">
+                                        <div class="d-flex justify-content-between">
+                                            <span>0</span>
+                                            <span id="prob-b2-value">0.222</span>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="prob-b3" class="form-label">P(B₃) - 3 genes W:</label>
+                                        <input type="range" class="form-range" id="prob-b3" min="0" max="1" step="0.001" value="0.037">
+                                        <div class="d-flex justify-content-between">
+                                            <span>0</span>
+                                            <span id="prob-b3-value">0.037</span>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-warning mb-4" id="validation-message" style="display: none;">
+                                <p class="mb-0">Atenção: A soma das probabilidades deve ser igual a 1.</p>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Soma das Probabilidades:</h5>
+                                            <p class="lead" id="soma-probs">1.000</p>
+                                            <button id="reset-probs" class="btn btn-outline-success">Restaurar Valores Originais</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5>Probabilidade de Resistência:</h5>
+                                            <p class="lead" id="prob-resistencia">31.12%</p>
+                                            <div class="progress">
+                                                <div class="progress-bar" id="progress-resistencia" role="progressbar" style="width: 31.12%;" aria-valuenow="31.12" aria-valuemin="0" aria-valuemax="100">31.12%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info">
+                                <p>Esta calculadora permite explorar como diferentes distribuições dos subtipos afetam a probabilidade total de resistência.</p>
+                                <p>Experimente aumentar a proporção de bactérias com mais genes W e observe como isso afeta a resistência total da colônia.</p>
+                                <p class="mb-0">Isso ilustra como a seleção natural pode favorecer os subtipos mais resistentes ao longo do tempo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title mb-3">Questão 2</h2>
+                    <p class="lead fw-normal text-dark text-center mb-5">
+                        Qual seria a distribuição prevista por subtipo da bactéria se o bacteriófago conseguisse afetar toda a colónia de bactérias?
+                    </p>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Abordagem Matemática</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Para determinar a distribuição prevista por subtipo da bactéria após o ataque do bacteriófago, utilizamos o Teorema de Bayes. Queremos calcular a probabilidade de cada subtipo, dado que a bactéria resistiu ao ataque.</p>
+                            <div class="math-container">
+                                <p>Utilizando o Teorema de Bayes:</p>
+                                <p>\(P(B_i|A) = \frac{P(A|B_i) \cdot P(B_i)}{P(A)}\)</p>
+                                
+                                <p>Onde \(P(A) = 0.31117\) (calculado na Questão 1).</p>
+                                
+                                <p>Para \(B_0\) (0 genes W):</p>
+                                <p>\(P(B_0|A) = \frac{P(A|B_0) \cdot P(B_0)}{P(A)} = \frac{0.07 \cdot 0.296}{0.31117} = \frac{0.02072}{0.31117} \approx 0.0666\) ou \(6.66\%\)</p>
+                                
+                                <p>Para \(B_1\) (1 gene W):</p>
+                                <p>\(P(B_1|A) = \frac{P(A|B_1) \cdot P(B_1)}{P(A)} = \frac{0.30 \cdot 0.444}{0.31117} = \frac{0.1332}{0.31117} \approx 0.4281\) ou \(42.81\%\)</p>
+                                
+                                <p>Para \(B_2\) (2 genes W):</p>
+                                <p>\(P(B_2|A) = \frac{P(A|B_2) \cdot P(B_2)}{P(A)} = \frac{0.55 \cdot 0.222}{0.31117} = \frac{0.1221}{0.31117} \approx 0.3924\) ou \(39.24\%\)</p>
+                                
+                                <p>Para \(B_3\) (3 genes W):</p>
+                                <p>\(P(B_3|A) = \frac{P(A|B_3) \cdot P(B_3)}{P(A)} = \frac{0.95 \cdot 0.037}{0.31117} = \frac{0.03515}{0.31117} \approx 0.1129\) ou \(11.29\%\)</p>
+                            </div>
+                            
+                            <div class="alert alert-success mt-4">
+                                <h5>Resultado:</h5>
+                                <p>A distribuição prevista por subtipo após o ataque do bacteriófago é:</p>
+                                <ul>
+                                    <li>Bactérias com 0 genes W: 6.66%</li>
+                                    <li>Bactérias com 1 gene W: 42.81%</li>
+                                    <li>Bactérias com 2 genes W: 39.24%</li>
+                                    <li>Bactérias com 3 genes W: 11.29%</li>
+                                </ul>
+                                <p class="mb-0">Verificação: 6.66% + 42.81% + 39.24% + 11.29% = 100%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Distribuição Antes e Depois do Ataque</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <canvas id="distribuicao-inicial-chart"></canvas>
+                                </div>
+                                <div class="col-md-6">
+                                    <canvas id="distribuicao-apos-chart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive mt-4">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Subtipo</th>
+                                            <th>Distribuição Inicial</th>
+                                            <th>Distribuição Após Ataque</th>
+                                            <th>Variação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="comparacao-table">
+                                        <!-- Preenchido via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="alert alert-info mt-4">
+                                <h5>Interpretação Biológica:</h5>
+                                <p>Observamos que após o ataque do bacteriófago, a distribuição dos subtipos de bactérias muda significativamente:</p>
+                                <ul>
+                                    <li>A proporção de bactérias com 0 genes W diminui drasticamente (de 29.6% para 6.66%), pois estas têm menor resistência ao bacteriófago.</li>
+                                    <li>A proporção de bactérias com 1 gene W se mantém relativamente estável, mas com leve diminuição (de 44.4% para 42.81%).</li>
+                                    <li>A proporção de bactérias com 2 genes W aumenta significativamente (de 22.2% para 39.24%), refletindo sua maior resistência.</li>
+                                    <li>A proporção de bactérias com 3 genes W (WWW) triplica (de 3.7% para 11.29%), demonstrando sua alta resistência ao bacteriófago.</li>
+                                </ul>
+                                <p class="mb-0">Isso ilustra o processo de seleção natural, onde os indivíduos com características mais favoráveis (neste caso, maior resistência ao bacteriófago) têm maior probabilidade de sobreviver e, consequentemente, aumentam sua representação na população.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Comparação Gráfica</h3>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="comparacao-chart"></canvas>
+                            
+                            <div class="alert alert-info mt-4">
+                                <p>Este gráfico compara diretamente a distribuição dos subtipos antes e depois do ataque do bacteriófago.</p>
+                                <p class="mb-0">Observe como os subtipos com mais genes W aumentam sua representação na população após o ataque, enquanto os subtipos com menos genes W diminuem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">Simulação de Evolução</h2>
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Evolução ao Longo de Múltiplas Gerações</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Esta simulação permite visualizar como a distribuição dos subtipos mudaria após sucessivos ataques do bacteriófago ao longo de várias gerações.</p>
+                            <div class="row mb-1">
+                                <div class="col-lg-3 col-md-3 mb-3">
+                                    <div class="form-group">
+                                        <label for="num-geracoes" class="form-label">Número de Gerações:</label>
+                                        <input type="number" class="form-control" id="num-geracoes" min="1" max="10" value="5">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 d-flex align-items-end mb-3">
+                                    <button id="simular-btn" class="btn btn-primary">Simular Evolução</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <canvas id="evolucao-chart"></canvas>
+                                </div>
+                                <div class="col-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Geração</th>
+                                                    <th>0 genes W</th>
+                                                    <th>1 gene W</th>
+                                                    <th>2 genes W</th>
+                                                    <th>3 genes W</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="evolucao-table">
+                                                <!-- Preenchido via JavaScript -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-4">
+                                <h5>Interpretação da Simulação:</h5>
+                                <p>Esta simulação mostra como a distribuição dos subtipos de bactérias evolui ao longo de múltiplas gerações sob a pressão seletiva do bacteriófago.</p>
+                                <p>Observe como, com o passar das gerações, os subtipos com mais genes W (especialmente o subtipo WWW) aumentam sua representação na população, enquanto os subtipos com menos genes W diminuem drasticamente.</p>
+                                <p class="mb-0">Este é um exemplo clássico de seleção natural em ação, onde a pressão seletiva (neste caso, o bacteriófago) favorece os indivíduos com características que conferem maior aptidão (neste caso, resistência ao bacteriófago).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">Validação Matemática</h2>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h3>Testes e Verificações</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="validation-section">
+                                <h5>1. Verificação do Teorema da Probabilidade Total</h5>
+                                <p class="mb-0">Para validar o cálculo da probabilidade total de resistência, realizamos os seguintes testes:</p>
+                                <div class="math-container m-0">
+                                    <p>Verificação passo a passo do cálculo:</p>
+                                    <p>\(P(A) = P(A|B_0) \cdot P(B_0) + P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2) + P(A|B_3) \cdot P(B_3)\)</p>
+                                    <p>\(P(A) = 0.07 \cdot 0.296 + 0.30 \cdot 0.444 + 0.55 \cdot 0.222 + 0.95 \cdot 0.037\)</p>
+                                    <p>Calculando cada termo separadamente:</p>
+                                    <p>\(0.07 \cdot 0.296 = 0.02072\)</p>
+                                    <p>\(0.30 \cdot 0.444 = 0.1332\)</p>
+                                    <p>\(0.55 \cdot 0.222 = 0.1221\)</p>
+                                    <p>\(0.95 \cdot 0.037 = 0.03515\)</p>
+                                    <p>Somando todos os termos:</p>
+                                    <p>\(0.02072 + 0.1332 + 0.1221 + 0.03515 = 0.31117\)</p>
+                                </div>
+                                <p>Verificamos este resultado utilizando diferentes métodos de cálculo:</p>
+                                <ul>
+                                    <li>Cálculo manual com calculadora científica</li>
+                                    <li>Implementação em JavaScript com verificação de precisão numérica</li>
+                                    <li>Verificação cruzada com cálculos em planilha eletrônica</li>
+                                </ul>
+                                <p class="mb-0">Todos os métodos produziram o mesmo resultado (31.12% com arredondamento para duas casas decimais), confirmando a precisão do cálculo.</p>
+                            </div>
+                            <div class="validation-section">
+                                <h5>2. Verificação do Teorema de Bayes</h5>
+                                <p>Para validar os cálculos da distribuição após o ataque usando o Teorema de Bayes, realizamos os seguintes testes:</p>
+                                <div class="math-container m-0">
+                                    <p>Verificação do cálculo para \(P(B_0|A)\):</p>
+                                    <p>\(P(B_0|A) = \frac{P(A|B_0) \cdot P(B_0)}{P(A)} = \frac{0.07 \cdot 0.296}{0.31117} = \frac{0.02072}{0.31117} = 0.06659\)</p>
+                                    
+                                    <p>Verificação do cálculo para \(P(B_1|A)\):</p>
+                                    <p>\(P(B_1|A) = \frac{P(A|B_1) \cdot P(B_1)}{P(A)} = \frac{0.30 \cdot 0.444}{0.31117} = \frac{0.1332}{0.31117} = 0.42807\)</p>
+                                    
+                                    <p>Verificação do cálculo para \(P(B_2|A)\):</p>
+                                    <p>\(P(B_2|A) = \frac{P(A|B_2) \cdot P(B_2)}{P(A)} = \frac{0.55 \cdot 0.222}{0.31117} = \frac{0.1221}{0.31117} = 0.39239\)</p>
+                                    
+                                    <p>Verificação do cálculo para \(P(B_3|A)\):</p>
+                                    <p>\(P(B_3|A) = \frac{P(A|B_3) \cdot P(B_3)}{P(A)} = \frac{0.95 \cdot 0.037}{0.31117} = \frac{0.03515}{0.31117} = 0.11296\)</p>
+                                    
+                                    <p>Verificação da soma das probabilidades:</p>
+                                    <p>\(P(B_0|A) + P(B_1|A) + P(B_2|A) + P(B_3|A) = 0.06659 + 0.42807 + 0.39239 + 0.11296 = 1.00001 \approx 1\)</p>
+                                </div>
+                                <p class="mb-0">A pequena diferença de 0.00001 deve-se a erros de arredondamento nos cálculos intermediários. Isso confirma que os resultados estão corretos, pois a soma das probabilidades é 1, como esperado para uma distribuição de probabilidade válida.</p>
+                            </div>
+                            <div class="validation-section">
+                                <h5>3. Validação da Simulação de Evolução</h5>
+                                <p>Para garantir a precisão da simulação de evolução ao longo de múltiplas gerações, realizamos os seguintes testes:</p>
+                                <ul>
+                                    <li>Verificamos que a distribuição inicial corresponde exatamente aos valores dados no problema</li>
+                                    <li>Confirmamos que a primeira geração após o ataque corresponde exatamente aos resultados calculados usando o Teorema de Bayes</li>
+                                    <li>Testamos a simulação com diferentes números de gerações e verificamos que cada geração subsequente é calculada corretamente aplicando o Teorema de Bayes à distribuição da geração anterior</li>
+                                    <li>Verificamos que a soma das probabilidades em cada geração é sempre igual a 1</li>
+                                </ul>
+                                <p class="mb-0">Estes testes confirmam que a simulação implementa corretamente o modelo matemático e produz resultados precisos e consistentes.</p>
+                            </div>
+                            <div class="validation-section">
+                                <h5>4. Testes de Casos Extremos</h5>
+                                <p>Para testar a robustez dos cálculos, também verificamos casos extremos:</p>
+                                <ul>
+                                    <li><strong>Caso 1:</strong> Se todas as bactérias fossem do subtipo com 0 genes W (P(B₀) = 1, P(B₁) = P(B₂) = P(B₃) = 0), a probabilidade de resistência seria exatamente 7%.</li>
+                                    <li><strong>Caso 2:</strong> Se todas as bactérias fossem do subtipo com 3 genes W (P(B₃) = 1, P(B₀) = P(B₁) = P(B₂) = 0), a probabilidade de resistência seria exatamente 95%.</li>
+                                    <li><strong>Caso 3:</strong> Se a distribuição fosse uniforme (P(B₀) = P(B₁) = P(B₂) = P(B₃) = 0.25), a probabilidade de resistência seria (0.07 + 0.30 + 0.55 + 0.95) / 4 = 0.4675 ou 46.75%.</li>
+                                </ul>
+                                <p class="mb-0">Todos estes casos extremos foram verificados e produziram os resultados esperados, confirmando a correção dos cálculos e da implementação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="fw-bold">Matemática</h5>
+                    <p>Ana Oliveira
+                        <br>Lenice Soares
+                        <br>Rebeca Santos
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Páginas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Início</a></li>
+                        <li><a href="ficha1.html" class="text-white">Ficha 1</a></li>
+                        <li><a href="ficha2.html" class="text-white">Ficha 2</a></li>
+                        <li><a href="teoria.html" class="text-white">Teoria</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="relatorio.html" class="text-white">Relatório Completo</a></li>
+                        <li><a href="equipa.html" class="text-white">Equipa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 - UFCD 5464 Matemática. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/ficha2.js"></script>
+</body>
+</html>
